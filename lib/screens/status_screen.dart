@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/constants/image_path.dart';
+import 'package:whatsapp_clone/models/chat_model.dart';
 import 'package:whatsapp_clone/theme/appcolors.dart';
 
 class StatusScreen extends StatefulWidget {
@@ -66,6 +67,35 @@ class _StatusScreenState extends State<StatusScreen> {
               style: TextStyle(
                 color: AppColors.greyColor,
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.white,
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  final chat = chatList[index];
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: AppColors.greyColor,
+                      backgroundImage: NetworkImage(chat.imageUrl),
+                      radius: 33,
+                    ),
+                    title: Text(
+                      chat.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: const Text("Today 6:00 AM"),
+                  );
+                },
+                separatorBuilder: (context, _) => const Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                ),
+                itemCount: chatList.length,
               ),
             ),
           ),
