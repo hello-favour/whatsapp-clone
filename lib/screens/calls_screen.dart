@@ -10,6 +10,8 @@ class CallsScreen extends StatefulWidget {
 class _CallsScreenState extends State<CallsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Center(
+      child: Text("CALLS SCREEN"),
+    );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_clone/screens/calls_screen.dart';
 import 'package:whatsapp_clone/screens/chats_screen.dart';
 import 'package:whatsapp_clone/screens/status_screen.dart';
+import 'package:whatsapp_clone/theme/appcolors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
+        backgroundColor: AppColors.primaryColor,
         title: const Text("WhatsApp"),
         elevation: 0.5,
         actions: [
@@ -58,6 +59,14 @@ class _HomeScreenState extends State<HomeScreen>
           StatusScreen(),
         ],
       ),
+      floatingActionButton: tabController.index == 0
+          ? FloatingActionButton(
+              onPressed: () {},
+              child: const Icon(
+                Icons.message,
+              ),
+            )
+          : null,
     );
   }
 }
