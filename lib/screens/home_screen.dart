@@ -55,8 +55,8 @@ class _HomeScreenState extends State<HomeScreen>
         controller: tabController,
         children: const [
           ChatsScreen(),
-          CallsScreen(),
           StatusScreen(),
+          CallsScreen(),
         ],
       ),
       floatingActionButton: tabController.index == 0
